@@ -21,4 +21,15 @@ public class MailController {
     public void sendToken(@PathVariable("name") String name, @PathVariable("to") String to, @PathVariable("token") String token){
         mailService.sendToken(name, to, token);
     }
+    @PostMapping("sendTrouve/{name}/{to}")
+    public void sendTrouve(@PathVariable("name") String name, @PathVariable("to") String to){
+        mailService.sendObjetTrouve(name, to);
+    }
+    @PostMapping("sendPotentiellementRetrouve/{name}/{to}/{nomRetrouveur}/{numberRetrouveur}/{emailRetrouveur}")
+    public void sendPotentiellementRetrouve(@PathVariable("name") String name, @PathVariable("to") String to,
+                                            @PathVariable("nomRetrouveur") String nomRetrouveur,
+                                            @PathVariable("numberRetrouveur") String numberRetrouveur,
+                                            @PathVariable("emailRetrouveur") String emailRetrouveur){
+        mailService.sendObjetPotentiellementRetrouve(name, to, nomRetrouveur, numberRetrouveur, emailRetrouveur);
+    }
 }
